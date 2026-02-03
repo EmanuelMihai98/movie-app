@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
 import MovieList from "../components/MoviesList";
 import { TfiFaceSad } from "react-icons/tfi";
+import { useSearch } from "../context/SearchContext";
+
 
 function Home(){
     const[movies, setMovies] = useState([]);
     const[loading, setLoading] = useState(false);
     const[error, setError] = useState(null);
 
+    const {movies: searchResults, searchQuery} = useSearch();
 
     useEffect(()=>{
         fetchMovies();
@@ -29,6 +32,7 @@ function Home(){
         }
     };
 
+    const moviesToDisplay = searchQuery ? searchResults : movies
     if(loading){
         return <h1 className="text-center text-bold pt-20 text-2xl text-green-400 animate-bounce">LOADING...</h1>
     };
@@ -39,7 +43,7 @@ function Home(){
 
     return(
         <div>
-            <MovieList movies={movies} />
+            <MovieList movies={moviesToDisplay} />
         </div>
     )
 }

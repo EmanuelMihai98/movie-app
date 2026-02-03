@@ -15,8 +15,8 @@ function Details(){
 
     const{id} = useParams();
 
-    const favTrue = "bg-gradient-to-r from-green-300 via-emerald-500 to-emerald-700 pl-1 pr-1 border-1 rounded hover:scale-105 duration-300 active:animate-pop"
-    const favFalse = "bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 pl-1 pr-1 border-1 rounded hover:scale-105 duration-300 active:animate-pop"
+    const favTrue = "bg-gradient-to-r from-green-300 via-emerald-500 to-emerald-700 pl-1 pr-1 border border-emerald-400 rounded hover:scale-105 duration-300 active:animate-pop"
+    const favFalse = "bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-600 pl-1 pr-1 border border-orange-200 rounded hover:scale-105 duration-300 active:animate-pop"
 
 
     useEffect(()=>{
@@ -67,7 +67,7 @@ function Details(){
             return <h1 className="text-center pt-20 text-bold text-2xl text-green-400 animate-bounce">LOADING...</h1>
         };
         if(error){
-            return <h1 className="text-center pt-20 text-bold text-2xl text-redd-400 animate-bounce">Something went wrong...<TfiFaceSad /></h1>
+            return <h1 className="text-center pt-20 text-bold text-2xl text-red-400 animate-bounce">Something went wrong...<TfiFaceSad /></h1>
         };
     
 
