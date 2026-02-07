@@ -73,15 +73,15 @@ function Details(){
 
     
     return(
-    <div>
+    <div className="py-4">
         {movie && <MovieDetails movie={movie}/>}
-        <h1 className="pt-3 font-bold ml-1">🎥Trailers:</h1>
+        <h1 className="pt-3 font-bold ml-1 md:text-center md:text-xl lg:text-xl">🎥Trailers:</h1>
         {trailer && (
              <iframe
-                width="390"
-                height="315"
+                className="w-[390px] h-[315px] md:w-[770px] md:h-[360px] lg:w-[1400px] lg:ml-3 lg:h-[580px]"
                 src={`https://www.youtube.com/embed/${trailer}`}
-                allowFullScreen />
+                allowFullScreen 
+                />
         )}
         <div className="flex justify-center py-6">
             <button className={isFavorite ? favTrue : favFalse }
