@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 
 
@@ -20,6 +21,7 @@ export function FavoritesProvider({children}){
         if(!found){
             const newFavorites = [...favorites, movie];
             setFavorites(newFavorites);
+            toast.success(`${movie.title}, ADDED TO FAVORITE`)
             localStorage.setItem("favorites", JSON.stringify(newFavorites))
         }
 
@@ -27,7 +29,8 @@ export function FavoritesProvider({children}){
 
     const removeFavorite = (ID)=>{
         const deleted = favorites.filter(favorite => favorite.id !== ID);
-        setFavorites(deleted)
+        setFavorites(deleted);
+        toast.error('Removed from favorites');
         localStorage.setItem("favorites", JSON.stringify(deleted))
     };
 

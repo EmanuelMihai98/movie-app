@@ -9,6 +9,7 @@ import { LoginProvider} from "./context/LoginContext";
 import Navbar from "./components/Navbar";
 import Title from "./components/Title";
 import SearchBar from "./components/SearchBar";
+import { Toaster } from "react-hot-toast";
 
 
 function App(){
@@ -16,6 +17,8 @@ function App(){
 
 
   return(
+    <>
+    <Toaster />
     <LoginProvider>
     <SearchProvider>
     <FavoritesProvider>
@@ -55,6 +58,7 @@ function App(){
       </FavoritesProvider>
       </SearchProvider>
       </LoginProvider>
+      </>
   )
 }
 export default App;

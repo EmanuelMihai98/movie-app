@@ -1,13 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../context/LoginContext";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 
 const LoginView = ()=>{
     const[username, setUsername] = useState("");
     const[password, setPassword] = useState("");
 
-    const { login, isAuthenticated } = useLogin();
+    const { login } = useLogin();
 
     const navigate = useNavigate();
 
@@ -16,8 +17,10 @@ const LoginView = ()=>{
         e.preventDefault();
         const result = login(username, password);
         if(result.success){
-        isAuthenticated(true);
-        navigate("/");
+        toast.success(`Welcome back, ${username}!`);
+        setTimeout(()=>{
+            navigate("/");
+        }, 1300);
     }
 }
 
